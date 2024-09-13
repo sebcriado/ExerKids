@@ -5,15 +5,15 @@ import Colors from "@/constants/Colors";
 import { Link, Stack } from "expo-router";
 import { supabase } from "@/libs/supabase";
 
-export default function SignInScreen() {
+export default function SignUpScreen() {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSignIn = async () => {
+  const handleSignUp = async () => {
     setLoading(true);
-    const { error } = await supabase.auth.signInWithPassword({
+    const { error } = await supabase.auth.signUp({
       email,
       password,
     });
@@ -23,7 +23,7 @@ export default function SignInScreen() {
 
   return (
     <View style={styles.container}>
-      <Stack.Screen options={{ title: "Connexion" }} />
+      <Stack.Screen options={{ title: "Inscription" }} />
       <View style={styles.inputView}>
         <Text style={styles.inputLabel}>Email :</Text>
         <TextInput
@@ -55,11 +55,11 @@ export default function SignInScreen() {
       </View>
 
       <Button
-        title={loading ? "Connexion ..." : "Connexion"}
-        onPress={handleSignIn}
+        title={loading ? "Inscription ..." : "Inscription"}
+        onPress={handleSignUp}
       />
-      <Link href={"/sign-up"} asChild>
-        <Button title="Pas de compte ?" />
+      <Link href={"/sign-in"} asChild>
+        <Button title="Déjà inscrit ?" />
       </Link>
     </View>
   );
