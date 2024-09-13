@@ -1,11 +1,17 @@
-import { StyleSheet } from "react-native";
+import { Button, StyleSheet } from "react-native";
 
 import { Text, View } from "@/components/Themed";
+import { supabase } from "@/libs/supabase";
 
 export default function ProfileScreen() {
+  const handleLogout = () => {
+    supabase.auth.signOut();
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Mon profil</Text>
+      <Button title="Se déconnecter" onPress={handleLogout} />
     </View>
   );
 }
