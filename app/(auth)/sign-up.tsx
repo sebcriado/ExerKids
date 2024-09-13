@@ -13,10 +13,17 @@ export default function SignUpScreen() {
 
   const handleSignUp = async () => {
     setLoading(true);
-    const { error } = await supabase.auth.signUp({
+    const { error, data } = await supabase.auth.signUp({
       email,
       password,
     });
+
+    if (data)
+      Alert.alert(
+        "Success",
+        "Veuillez vérifier votre email pour confirmer votre inscription"
+      );
+
     if (error) Alert.alert("Error", error.message);
     setLoading(false);
   };

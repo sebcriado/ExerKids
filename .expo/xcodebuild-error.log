@@ -1,0 +1,3 @@
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:iOS Simulator, id:5374B08C-B49C-47D8-AACE-ECBD8FD3569C, OS:17.5, name:iPad (10th generation) }
+{ platform:iOS Simulator, id:5374B08C-B49C-47D8-AACE-ECBD8FD3569C, OS:17.5, name:iPad (10th generation) }
