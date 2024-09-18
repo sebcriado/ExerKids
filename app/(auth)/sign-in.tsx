@@ -23,7 +23,11 @@ export default function SignInScreen() {
 
   return (
     <View style={styles.container}>
-      <Stack.Screen options={{ title: "Connexion" }} />
+      <Stack.Screen
+        options={{
+          headerShown: false,
+        }}
+      />
       <View>
         <Text style={styles.logoTitle}>ExerKids</Text>
         <Text style={styles.text}>

@@ -30,7 +30,7 @@ export default function SignUpScreen() {
 
   return (
     <View style={styles.container}>
-      <Stack.Screen options={{ title: "Inscription" }} />
+      <Stack.Screen options={{ headerShown: false }} />
       <View>
         <Text style={styles.logoTitle}>ExerKids</Text>
         <Text style={styles.text}>
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   logoTitle: {
-    fontSize: 140,
+    fontSize: 190,
     fontFamily: "Dongle",
     color: "#FFE5D9",
     textAlign: "center",
