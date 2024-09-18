@@ -42,7 +42,7 @@ export default function SignInScreen() {
         />
       </View>
       <View style={styles.inputView}>
-        <Text style={styles.inputLabel}>Password :</Text>
+        <Text style={styles.inputLabel}>Mot de passe :</Text>
         <View style={styles.secureView}>
           <TextInput
             style={styles.secureInput}
@@ -116,13 +116,13 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   logoTitle: {
-    fontSize: 140,
+    fontSize: 190,
     fontFamily: "Dongle",
     color: "#FFE5D9",
     textAlign: "center",
   },
   text: {
-    fontSize: 30,
+    fontSize: 32,
     fontFamily: "Dongle",
     color: "#FFE5D9",
     textAlign: "center",

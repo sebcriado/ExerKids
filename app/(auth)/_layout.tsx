@@ -10,8 +10,6 @@ export default function AuthLayout() {
 
   const url = Linking.useURL();
 
-  console.log("url", url);
-
   const createSessionFromUrl = async (url: string) => {
     const { params, errorCode } = QueryParams.getQueryParams(url);
 

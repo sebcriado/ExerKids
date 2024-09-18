@@ -49,7 +49,7 @@ export default function SignUpScreen() {
         />
       </View>
       <View style={styles.inputView}>
-        <Text style={styles.inputLabel}>Password :</Text>
+        <Text style={styles.inputLabel}>Mot de passe :</Text>
         <View style={styles.secureView}>
           <TextInput
             style={styles.secureInput}
