@@ -31,6 +31,12 @@ export default function SignUpScreen() {
   return (
     <View style={styles.container}>
       <Stack.Screen options={{ title: "Inscription" }} />
+      <View>
+        <Text style={styles.logoTitle}>ExerKids</Text>
+        <Text style={styles.text}>
+          Le compagnon qui fais progresser votre enfant{" "}
+        </Text>
+      </View>
       <View style={styles.inputView}>
         <Text style={styles.inputLabel}>Email :</Text>
         <TextInput
@@ -64,9 +70,10 @@ export default function SignUpScreen() {
       <Button
         title={loading ? "Inscription ..." : "Inscription"}
         onPress={handleSignUp}
+        color={"#FFE5D9"}
       />
       <Link href={"/sign-in"} asChild>
-        <Button title="Déjà inscrit ?" />
+        <Button title="Déjà inscrit ?" color={"#FFE5D9"} />
       </Link>
     </View>
   );
@@ -78,17 +85,20 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     gap: 10,
     padding: 10,
+    backgroundColor: "#2D6A4F",
   },
   inputView: {
     gap: 5,
+    width: "60%",
+    alignSelf: "center",
   },
   inputLabel: {
-    color: "gray",
+    color: "white",
     fontSize: 16,
   },
   emailInput: {
     borderWidth: 1,
-    borderColor: "black",
+    backgroundColor: "white",
     borderRadius: 10,
     height: 40,
     padding: 10,
@@ -99,10 +109,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     borderWidth: 1,
     borderRadius: 10,
+    backgroundColor: "white",
     height: 40,
   },
   secureInput: {
-    borderColor: "black",
     width: "80%",
     padding: 10,
   },
@@ -111,5 +121,24 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: Colors.light.tint,
     marginVertical: 10,
+  },
+  logoTitle: {
+    fontSize: 140,
+    fontFamily: "Dongle",
+    color: "#FFE5D9",
+    textAlign: "center",
+  },
+  text: {
+    fontSize: 30,
+    fontFamily: "Dongle",
+    color: "#FFE5D9",
+    textAlign: "center",
+  },
+  button: {
+    backgroundColor: "#FFE5D9",
+    borderRadius: 10,
+    padding: 10,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
