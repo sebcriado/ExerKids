@@ -34,7 +34,7 @@ export default function SignUpScreen() {
       <View>
         <Text style={styles.logoTitle}>ExerKids</Text>
         <Text style={styles.text}>
-          Le compagnon qui fais progresser votre enfant{" "}
+          Le compagnon qui fait progresser votre enfant{" "}
         </Text>
       </View>
       <View style={styles.inputView}>
