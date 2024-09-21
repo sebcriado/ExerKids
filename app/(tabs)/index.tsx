@@ -7,13 +7,14 @@ import { useEffect, useState } from "react";
 const fetchExercises = async () => {
   const { data, error } = await supabase
     .from("exercice")
-    .select("id, name, description, difficulty, age");
+    .select(
+      "id, name, description, difficulty, age, category:category_id(name)"
+    );
 
   if (error) {
     console.error(error);
     return [];
   }
-  console.log(data);
 
   return data;
 };
@@ -38,6 +39,7 @@ export default function HomeScreen() {
       description: string;
       difficulty: number;
       age: number;
+      category: { name: string };
     };
   }) => {
     return (
@@ -45,7 +47,10 @@ export default function HomeScreen() {
         <Text style={styles.title}>{item.name}</Text>
         <Text style={styles.text}>{item.description}</Text>
         <Text style={styles.difficulty}>Difficulté: {item.difficulty}/5</Text>
-        <Text style={styles.age}>À partir de {item.age} ans</Text>
+        <View style={styles.infoWrapper}>
+          <Text style={styles.age}>À partir de {item.age} ans</Text>
+          <Text style={styles.category}>{item.category.name}</Text>
+        </View>
       </View>
     );
   };
@@ -91,5 +96,21 @@ const styles = StyleSheet.create({
   },
   list: {
     padding: 20,
+  },
+  category: {
+    fontSize: 14,
+    padding: 10,
+    fontWeight: "bold",
+    backgroundColor: "#FFE5D9",
+    color: "#2D6A4F",
+    width: "20%",
+    textAlign: "center",
+    borderRadius: 10,
+  },
+  infoWrapper: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "#2D6A4F",
   },
 });
