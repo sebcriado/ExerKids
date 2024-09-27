@@ -4,7 +4,7 @@ export interface ExerciseRaw {
   description: string;
   difficulty: number;
   age: number;
-  category: { name: string }[];
+  category: { name: string };
 }
 
 export interface Exercise {

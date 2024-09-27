@@ -14,28 +14,47 @@ export const useExercises = () => {
         );
 
       if (error) {
-        console.error(error);
+        console.error("Error fetching exercises:", error);
         return;
       }
 
+      console.log("Raw exercises:", data);
+
       // Transformation et validation des données
-      const validExercises: Exercise[] = (data as ExerciseRaw[])
-        .filter(
-          (item): item is ExerciseRaw =>
+      const validExercises: Exercise[] = (data as unknown as ExerciseRaw[])
+        .filter((item) => {
+          const isValid =
             typeof item.id === "number" &&
             typeof item.name === "string" &&
             typeof item.description === "string" &&
             typeof item.difficulty === "number" &&
             typeof item.age === "number" &&
-            Array.isArray(item.category) &&
-            item.category.length > 0 &&
-            typeof item.category[0].name === "string"
-        )
+            typeof item.category === "object" &&
+            item.category !== null &&
+            typeof item.category.name === "string";
+
+          if (!isValid) {
+            console.warn("Invalid exercise:", item);
+            console.warn("Validation details:", {
+              id: typeof item.id === "number",
+              name: typeof item.name === "string",
+              description: typeof item.description === "string",
+              difficulty: typeof item.difficulty === "number",
+              age: typeof item.age === "number",
+              categoryObject: typeof item.category === "object",
+              categoryNotNull: item.category !== null,
+              categoryName: typeof item.category?.name === "string",
+            });
+          }
+
+          return isValid;
+        })
         .map((item) => ({
           ...item,
-          category: item.category[0], // Prend le premier élément du tableau
+          category: item.category,
         }));
 
+      console.log("Valid exercises:", validExercises);
       setExercises(validExercises);
     };
 

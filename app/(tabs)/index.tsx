@@ -4,8 +4,10 @@ import { useExercises } from "@/hooks/useExercises";
 import { ExerciseItem } from "@/components/ExerciseItem";
 import { styles } from "@/styles/exerciceStyles";
 
-export const HomeScreen: React.FC = () => {
+export default function HomeScreen() {
   const exercises = useExercises();
+
+  console.log(exercises);
 
   return (
     <FlatList
@@ -16,4 +18,4 @@ export const HomeScreen: React.FC = () => {
       ItemSeparatorComponent={() => <View style={{ height: 20 }} />}
     />
   );
-};
+}
