@@ -38,9 +38,7 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     backgroundColor: COLORS.SECONDARY,
     color: COLORS.PRIMARY,
-    width: "20%",
     textAlign: "center",
-    borderRadius: 10,
   },
   infoWrapper: {
     flexDirection: "row",

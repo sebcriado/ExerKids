@@ -1,9 +1,19 @@
-import { View, StyleSheet, TextInput, Text, Alert, Button } from "react-native";
+import {
+  View,
+  StyleSheet,
+  TextInput,
+  Text,
+  Alert,
+  Button,
+  Dimensions,
+} from "react-native";
 import { FontAwesome6 } from "@expo/vector-icons";
 import { useState } from "react";
 import Colors from "@/constants/Colors";
 import { Link, Stack } from "expo-router";
 import { supabase } from "@/libs/supabase";
+
+const { width } = Dimensions.get("window");
 
 export default function SignInScreen() {
   const [showPassword, setShowPassword] = useState(false);
@@ -29,12 +39,14 @@ export default function SignInScreen() {
         }}
       />
       <View>
-        <Text style={styles.logoTitle}>ExerKids</Text>
-        <Text style={styles.text}>
+        <Text style={[styles.logoTitle, { fontSize: width < 400 ? 100 : 190 }]}>
+          ExerKids
+        </Text>
+        <Text style={[styles.text, { fontSize: width < 400 ? 20 : 32 }]}>
           Le compagnon qui fait progresser votre enfant{" "}
         </Text>
       </View>
-      <View style={styles.inputView}>
+      <View style={[styles.inputView, { width: width < 400 ? "80%" : "60%" }]}>
         <Text style={styles.inputLabel}>Email :</Text>
         <TextInput
           style={styles.emailInput}
@@ -45,7 +57,7 @@ export default function SignInScreen() {
           autoCapitalize="none"
         />
       </View>
-      <View style={styles.inputView}>
+      <View style={[styles.inputView, { width: width < 400 ? "80%" : "60%" }]}>
         <Text style={styles.inputLabel}>Mot de passe :</Text>
         <View style={styles.secureView}>
           <TextInput
@@ -86,7 +98,6 @@ const styles = StyleSheet.create({
   },
   inputView: {
     gap: 5,
-    width: "60%",
     alignSelf: "center",
   },
   inputLabel: {
@@ -120,14 +131,13 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   logoTitle: {
-    fontSize: 190,
     fontFamily: "Dongle",
     color: "#FFE5D9",
     textAlign: "center",
   },
   text: {
-    fontSize: 32,
     fontFamily: "Dongle",
+    marginBottom: 20,
     color: "#FFE5D9",
     textAlign: "center",
   },
