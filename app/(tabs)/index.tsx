@@ -7,8 +7,6 @@ import { styles } from "@/styles/exerciceStyles";
 export default function HomeScreen() {
   const exercises = useExercises();
 
-  console.log(exercises);
-
   return (
     <FlatList
       data={exercises}

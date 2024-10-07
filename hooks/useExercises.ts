@@ -18,8 +18,6 @@ export const useExercises = () => {
         return;
       }
 
-      console.log("Raw exercises:", data);
-
       // Transformation et validation des données
       const validExercises: Exercise[] = (data as unknown as ExerciseRaw[])
         .filter((item) => {
@@ -54,7 +52,6 @@ export const useExercises = () => {
           category: item.category,
         }));
 
-      console.log("Valid exercises:", validExercises);
       setExercises(validExercises);
     };
 

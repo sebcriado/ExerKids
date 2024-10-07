@@ -6,6 +6,7 @@ import {
   Alert,
   Button,
   Dimensions,
+  TouchableOpacity,
 } from "react-native";
 import { FontAwesome6 } from "@expo/vector-icons";
 import { useState } from "react";
@@ -81,6 +82,11 @@ export default function SignInScreen() {
         onPress={handleSignIn}
         color={"#FFE5D9"}
       />
+
+      <Link href={"/forgot-password"} asChild>
+        <Button title="Mot de passe oublié ?" color={"#FFE5D9"} />
+      </Link>
+
       <Link href={"/sign-up"} asChild>
         <Button title="Pas de compte ?" color={"#FFE5D9"} />
       </Link>
@@ -147,5 +153,10 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems: "center",
     justifyContent: "center",
+  },
+  forgotPasswordText: {
+    color: "#FFE5D9",
+    textAlign: "center",
+    marginVertical: 10,
   },
 });
